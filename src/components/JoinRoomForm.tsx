@@ -19,7 +19,7 @@ export function JoinRoomForm() {
       return;
     }
 
-    router.push(`/r/${normalized}`);
+    router.push(`/${normalized}`);
   };
 
   const handleChange = (value: string) => {

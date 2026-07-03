@@ -18,7 +18,7 @@ export function CreateRoomButton() {
     try {
       const { code, creatorToken } = await createRoom();
       saveCreatorToken(code, creatorToken);
-      router.push(`/r/${code}`);
+      router.push(`/${code}`);
     } catch (err) {
       console.error("Failed to create room:", err);
       setError(

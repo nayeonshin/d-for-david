@@ -31,8 +31,8 @@ export function RoomPage({ code }: RoomPageProps) {
   }, [normalizedCode]);
 
   const roomUrl = useMemo(() => {
-    if (typeof window === "undefined") return `/r/${normalizedCode}`;
-    return `${window.location.origin}/r/${normalizedCode}`;
+    if (typeof window === "undefined") return `/${normalizedCode}`;
+    return `${window.location.origin}/${normalizedCode}`;
   }, [normalizedCode]);
 
   if (room === undefined || !mounted) {
