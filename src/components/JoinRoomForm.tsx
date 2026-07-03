@@ -15,7 +15,7 @@ export function JoinRoomForm() {
 
     const normalized = normalizeRoomCode(code);
     if (!isValidRoomCode(normalized)) {
-      setError("Enter a room code like MINT-CLOUD or a 5-character legacy code.");
+      setError("Enter a 3-digit room code.");
       return;
     }
 
@@ -38,17 +38,18 @@ export function JoinRoomForm() {
           type="text"
           value={code}
           onChange={(e) => handleChange(e.target.value)}
-          placeholder="MINT-CLOUD"
-          maxLength={24}
+          placeholder="123"
+          maxLength={3}
           className="min-h-14 flex-1 rounded-xl border border-slate-200 bg-white px-4 text-center font-mono text-2xl font-bold uppercase tracking-widest text-slate-900 shadow-sm placeholder:text-slate-300 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20"
           autoComplete="off"
           autoCorrect="off"
-          autoCapitalize="characters"
+          inputMode="numeric"
+          autoCapitalize="off"
           spellCheck={false}
         />
         <button
           type="submit"
-          disabled={code.trim().length < 5}
+          disabled={code.trim().length < 3}
           className="min-h-14 rounded-xl border border-slate-200 bg-white px-8 py-4 text-lg font-semibold text-slate-800 shadow-sm transition hover:bg-slate-50 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-40"
         >
           Join Room

@@ -7,37 +7,11 @@ import {
 
 const ROOM_TTL_MS = 30 * 60 * 1000; // 30 minutes
 const MAX_CODE_ATTEMPTS = 20;
-const CODE_ADJECTIVES = [
-  "AQUA",
-  "BRIGHT",
-  "CALM",
-  "COZY",
-  "EASY",
-  "FRESH",
-  "MINT",
-  "NICE",
-  "SUNNY",
-  "TIDY",
-];
-
-const CODE_NOUNS = [
-  "BREEZE",
-  "CLOUD",
-  "COVE",
-  "FERN",
-  "GROVE",
-  "HARBOR",
-  "MAPLE",
-  "MEADOW",
-  "RIVER",
-  "WAVE",
-];
 
 function generateReadableRoomCode(): string {
-  const adjective =
-    CODE_ADJECTIVES[Math.floor(Math.random() * CODE_ADJECTIVES.length)];
-  const noun = CODE_NOUNS[Math.floor(Math.random() * CODE_NOUNS.length)];
-  return `${adjective}-${noun}`;
+  const min = 100;
+  const max = 999;
+  return String(Math.floor(Math.random() * (max - min + 1)) + min);
 }
 
 function generateToken(): string {
